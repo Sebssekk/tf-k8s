@@ -1,5 +1,5 @@
 resource "terraform_data" "waiter_linux" {
-  count = var.host_os == "linux" ? 1 : 0
+  count = var.terraform_running_OS == "linux" ? 1 : 0
   # Re-run the waiter if the target instance is recreated or if the target value changes
   triggers_replace = [
     var.instance_id,

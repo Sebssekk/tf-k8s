@@ -1,9 +1,9 @@
 module "cp_waiter" {
-  depends_on = [ google_compute_instance.cp ]
-  for_each = google_compute_instance.cp
-  source = "./waiter"
+  depends_on = [ google_compute_instance.cps ]
+  for_each = { for idx,cp in  google_compute_instance.cps : idx => cp}
+  source = "../waiter"
 
-  host_os = var.host_os
+  terraform_running_OS = var.terraform_running_OS
   project_id = var.project_id
   zone = each.value.zone
   instance_name = each.value.name
@@ -17,11 +17,11 @@ module "cp_waiter" {
 }
 
 module "wk_waiter" {
-  depends_on = [ google_compute_instance.worker ]
-  for_each = google_compute_instance.worker
-  source = "./waiter"
+  depends_on = [ google_compute_instance.wks ]
+  for_each = { for idx, wk in google_compute_instance.wks : idx => wk }
+  source = "../waiter"
 
-  host_os = var.host_os
+  terraform_running_OS = var.terraform_running_OS
   project_id = var.project_id
   zone = each.value.zone
   instance_name = each.value.name

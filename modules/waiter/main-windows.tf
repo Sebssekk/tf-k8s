@@ -1,5 +1,5 @@
 resource "terraform_data" "waiter_windows" {
-  count = var.host_os == "windows" ? 1 : 0
+  count = var.terraform_running_OS == "windows" ? 1 : 0
 
   triggers_replace = [
     var.instance_id,

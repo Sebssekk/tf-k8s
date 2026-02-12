@@ -13,10 +13,3 @@ provider "google" {
   project = var.project_id
 }
 
-provider "tls" {
-  # Configuration options
-}
-
-provider "local" {
-  # Configuration options
-}

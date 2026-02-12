@@ -1,10 +1,10 @@
-variable "host_os" {
+variable "terraform_running_OS" {
   description = "The OS where Terraform is running (linux or windows)"
   type        = string
   default     = "linux" # Set to "windows" if running on native Windows cmd/powershell
   
   validation {
-    condition     = contains(["linux", "windows"], var.host_os)
+    condition     = contains(["linux", "windows"], var.terraform_running_OS)
     error_message = "The host_os must be either 'linux' or 'windows'."
   }
 }

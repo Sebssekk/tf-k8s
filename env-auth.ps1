@@ -1,0 +1,1 @@
+$env:GOOGLE_CREDENTIALS = (Get-Content sa-key.json | ForEach-Object { $_ -replace '\n', ' ' }) -join ' '

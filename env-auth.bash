@@ -1,0 +1,1 @@
+export GOOGLE_CREDENTIALS=$(cat sa-key.json | tr -s '\n' ' ')

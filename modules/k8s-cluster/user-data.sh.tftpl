@@ -80,7 +80,7 @@ sudo chmod 600 /tmp/key
 sudo rm /etc/containerd/config.toml
 sudo systemctl restart containerd
 
-{% if CLUSTER_READY %}
+%{ if CLUSTER_READY }
 
 ## K8s initilize
 ROLE=$K8S_ROLE
@@ -116,7 +116,7 @@ if [[ $ROLE == "wk" ]]; then
     sudo chmod +x /tmp/join.me
     sudo /tmp/join.me
 fi
-{% endif %}
+%{ endif }
 
 ## Signal Startup completed
 

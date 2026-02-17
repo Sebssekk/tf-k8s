@@ -32,11 +32,14 @@ variable "shared_subnet_id" {
 variable "gcp_region" {
   type = string
   description = "GCP Region for subnet"
+  nullable = true
+  default = null
 }
 
 variable "subnet_cidr" {
   type = string
   description = "CIDR of the subnet"
+  default = null
 }
 
 variable "create_router_nat" {

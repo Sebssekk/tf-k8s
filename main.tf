@@ -59,6 +59,7 @@ provider "kubernetes" {
 }
 
 data "kubernetes_nodes" "k8s_nodes" {
+  depends_on = [ local_file.kubeconfig ]
 }
 
 output "k8s_nodes" {

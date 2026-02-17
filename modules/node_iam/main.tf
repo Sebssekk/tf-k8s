@@ -1,13 +1,13 @@
 resource "google_service_account" "wk_sa" {
   count = var.shared_sa_wk ? 0 : 1
   display_name = "${var.prefix_name} Service Account for WKs"
-  account_id = "wk-cluster${count.index}-sa"
+  account_id = "${var.prefix_name}-wk-cluster${count.index}-sa"
 }
 
 resource "google_service_account" "cp_sa" {
   count = var.shared_sa_cp ? 0 : 1
   display_name = "${var.prefix_name} Service Account for CPs"
-  account_id = "cp-cluster${count.index}-sa"
+  account_id = "${var.prefix_name}-cp-cluster${count.index}-sa"
 }
 
 

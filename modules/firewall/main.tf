@@ -10,6 +10,7 @@ resource "google_compute_firewall" "public_ssh_in" {
     protocol = "icmp"
   }
   source_ranges = ["0.0.0.0/0"]
+  target_service_accounts = [var.cp_sa_email, var.wk_sa_email]
 }
 
 resource "google_compute_firewall" "public_api_server_in" {

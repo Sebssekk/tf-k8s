@@ -11,7 +11,7 @@ data "external" "fetcher_linux" {
   }
 
   # Wait for the VM to be ready
-  depends_on = [ module.cp_waiter ]
+  depends_on = [ module.cp_waiter, module.wk_waiter ]
 }
 
 data "external" "fetcher_windows" {
@@ -26,5 +26,5 @@ data "external" "fetcher_windows" {
     file = "/home/${var.node_ssh_user}/.kube/config" # The file you want to read
   }
 
-  depends_on = [ module.cp_waiter ]
+  depends_on = [ module.cp_waiter, module.wk_waiter ]
 }
